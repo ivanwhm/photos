@@ -5,6 +5,12 @@ import { pluck } from 'rxjs/operators';
 
 const API_URL = 'https://api.unsplash.com';
 
+interface UnsplashResponse {
+  urls: {
+    regular: string;
+  };
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -13,7 +19,7 @@ export class PhotosService {
 
   getPhoto(): Observable<string> {
     return this.http
-      .get(`${API_URL}/photos/random`, {
+      .get<UnsplashResponse>(`${API_URL}/photos/random`, {
         headers: {
           Authorization: 'Client-ID L6iJKjKHWCd4FgQqClNNcp01gmc9MG6MOXgjXJ6mqDY',
         },
