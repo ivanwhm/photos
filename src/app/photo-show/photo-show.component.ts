@@ -14,7 +14,7 @@ export class PhotoShowComponent implements OnInit {
     this.getPhoto();
   }
 
-  getPhoto(): any {
-    this.service.getPhoto().subscribe((value) => console.log(value));
+  getPhoto(): void {
+    this.service.getPhoto().subscribe((value: string) => console.warn(value));
   }
 }
