@@ -8,15 +8,20 @@ import { PhotosService } from '../photos.service';
   styleUrls: ['./photo-show.component.css'],
 })
 export class PhotoShowComponent implements OnInit {
-  photoSource = '';
+  photoUrl = '';
+  loading = '';
 
   constructor(private service: PhotosService) {}
 
   ngOnInit(): void {
-    this.getPhoto();
+    this.fetchPhoto();
   }
 
-  getPhoto(): void {
-    this.service.getPhoto().subscribe((value: string) => (this.photoSource = value));
+  fetchPhoto(): void {
+    this.loading = 'Loading...';
+    this.service.getPhoto().subscribe((value: string) => {
+      this.photoUrl = value;
+      this.loading = '';
+    });
   }
 }

@@ -7,7 +7,7 @@ const API_URL = 'https://api.unsplash.com';
 
 interface UnsplashResponse {
   urls: {
-    regular: string;
+    small: string;
   };
 }
 
@@ -21,9 +21,9 @@ export class PhotosService {
     return this.http
       .get<UnsplashResponse>(`${API_URL}/photos/random`, {
         headers: {
-          Authorization: 'Client-ID L6iJKjKHWCd4FgQqClNNcp01gmc9MG6MOXgjXJ6mqDY',
+          Authorization: 'Client-ID <USE YOUR ON ACCESS KEY HERE!!>',
         },
       })
-      .pipe(pluck('urls', 'regular'));
+      .pipe(pluck('urls', 'small'));
   }
 }

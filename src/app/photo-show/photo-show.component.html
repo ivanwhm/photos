@@ -1,1 +1,5 @@
-<img *ngIf="photoSource" [src]="photoSource" />
+<div><button (click)="fetchPhoto()">Get another photo</button> {{ loading }}</div>
+<br />
+<div>
+  <img *ngIf="photoUrl" [src]="photoUrl" />
+</div>
